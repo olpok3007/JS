@@ -1,39 +1,3 @@
-// let num=1
-// console.log(num);
-// num=10
-// console.log(num);
-
-// let num1='2'
-// console.log(num1);
-// num1=555
-// console.log(num1);
-// console.log('g'*0);
-
-// let userValue=+prompt("Your amount")
-// if(userValue>=500&&userValue<1500){
-//   let sold_5=userValue/20
-//   console.log("Your amount with 5% discount = "+(userValue-sold_5)+' грн.')
-// }else if(userValue>=1500){
-//   let sold_10=userValue/10
-//   console.log("Your amount with 10% discount = "+(userValue-sold_10)+" грн.")
-// }else{
-//   console.log("Your amount "+(userValue)+" грн.")
-// }
-// let num = 0;
-
-// while (num <= 20) {
-//   console.log((num = num + 2));
-//   num++;
-// }
-
-// let pass = 12345;
-
-// let userPass = prompt("Your pass");
-// if (userPass === pass) {
-//   console.log(444);
-// } else {
-//   userPass;
-
 /**Виконати наступні завдання
 
 Створити масив [ 1, 2, 3 ]. Додати до нього в кінець наступні значення : 6, 5 , 4. Після цього до нього же додати у початок значення: -3, -2, -1
