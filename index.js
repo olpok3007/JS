@@ -1,43 +1,84 @@
-/**Виконати наступні завдання
+"use strict";
 
-Створити масив [ 1, 2, 3 ]. Додати до нього в кінець наступні значення : 6, 5 , 4. Після цього до нього же додати у початок значення: -3, -2, -1
+/////////////////////////////////
+const p1 = document.querySelector(".p1");
 
-Створити масив [ 100, -273.15, 0,1, 2, 3, 4, 5, 6, 9, 10 ]. Видалити перші та остані два значення з нього.
+const inp = document.createElement("input");
+inp.classList.add("input");
+inp.textContent = "GOOOOOO";
+inp.setAttribute("type", "text");
+inp.setAttribute("name", "GO");
+p1.prepend(inp);
 
+function getTarget(e) {
+  console.log(e.target);
+}
 
- Створити масив [1, 2, 3, 4, 5]. За допомогою методу splice перетворити його на [1, 4, 5].
+// document.body.onclick = function (e) {
+//   console.log(e);
+// };
 
+inp.addEventListener("click", getTarget);
 
- Створити масив [1, 2, 3, 4, 5]. За допомогою методу splice записати у новий масив елементи [2, 3, 4].
+////////////////////////////////////////
 
+// const p1 = document.querySelector(".p1");
+const p2 = document.querySelector(".p2");
+const btn_add = document.querySelector(".btn_add");
+const btn_delete = document.querySelector(".btn_delete");
+const input_text = document.querySelector("#input_text");
 
-Створити масив [1, 2, 3, 4, 5]. За допомогою методу splice перетворити його на масив [1, 2, 3, 'a', 'b', 'c', 4, 5].
+function getUserText(e) {
+  let value = prompt("Input your task!!!");
+  console.log(e.target);
+  p2.textContent = value;
+}
 
+function deleteUserText() {
+  btn_delete.remove();
+  p2.remove();
+}
 
- Створити масив [1, 2, 3, 4, 5]. За допомогою методу splice перетворити його на масив [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e']. */
+btn_add.addEventListener("click", getUserText);
+btn_delete.addEventListener("click", deleteUserText);
 
-const arr = [1, 2, 3];
-arr.push(6, 5, 4);
-arr.unshift(-3, -2, -1);
-console.log(arr);
+/////////////////////////////
+/*
+  створити базовий todo-list
+  по натисканню на кнопку запитати у користувача задачу
+  потім створити елменент з текстом задачі і розмістити його на сторінці
+  * поруч з текстом задачі розмістит кнопку delete
+    при натисканні на неї видалити задачу і кнопку
+*/
 
-const arr1 = [100, -273.15, 0, 1, 2, 3, 4, 5, 6, 9, 10];
-console.log(arr1.slice(2, -2));
+const addTask = document.querySelector(".question-btn");
+const todoList = document.querySelector(".todo-list");
+// const deleteBtn = document.querySelector('.btn');
 
-const arr2 = [1, 2, 3, 4, 5];
-arr2.splice(arr2.length - 4, 2);
-console.log(arr2);
+function deleteHandler(event) {
+  event.target.parentElement.remove();
+}
 
-const arr3 = [1, 2, 3, 4, 5];
-let new_arr3 = arr3.splice(1, 3);
-console.log(new_arr3);
+addTask.addEventListener("click", function () {
+  const newTask = prompt("Write new task");
 
-const arr4 = [1, 2, 3, 4, 5];
-arr4.splice(3, 0, "a", "b", "c");
-console.log(arr4);
+  if (newTask === "") {
+    alert("Write something");
+    return;
+  }
 
-const arr5 = [1, 2, 3, 4, 5];
-arr5.splice(1, 0, "a", "b");
-arr5.splice(length - 1, 0, "c");
-arr5.splice(8, 0, "e");
-console.log(arr5);
+  const newSection = document.createElement("li");
+  newSection.classList.add("section-question");
+
+  const newButtonDelete = document.createElement("button");
+  newButtonDelete.classList.add("btn");
+  newButtonDelete.innerText = "Delete";
+  newButtonDelete.addEventListener("click", deleteHandler);
+
+  const newElem = document.createElement("p");
+  newElem.textContent = newTask;
+  newElem.classList.add("text");
+
+  newSection.append(newElem, newButtonDelete);
+  todoList.append(newSection);
+});
